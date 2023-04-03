@@ -8,6 +8,7 @@ import lombok.Getter;
 @Data
 public class Artifact {
 
+    private String name;
     private ArtifactType type;
     private float value;
     private int id;

@@ -5,11 +5,11 @@ import lombok.Getter;
 @Getter
 public class PostgresConfig {
 
-    private String host;
-    private String port;
-    private String database;
-    private String username;
-    private String password;
+    private final String host;
+    private final String port;
+    private final String database;
+    private final String username;
+    private final String password;
 
     public PostgresConfig() {
         this.host = "localhost";

@@ -4,6 +4,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
 import me.hjordan.swingy.objects.artifact.Artifact;
+import me.hjordan.swingy.objects.artifact.ArtifactType;
+import me.hjordan.swingy.objects.stats.Stats;
 import me.hjordan.swingy.utils.Consts;
 
 @Data
@@ -42,6 +44,28 @@ public abstract class AbstractHero {
        // this.artifactSlots[Consts.ARTIFACTS_WEAPON] = Artifact.builder().type(ArtifactType.WEAPON).value(weapon).build();
        // this.artifactSlots[Consts.ARTIFACTS_ARMOR] = Artifact.builder().type(ArtifactType.ARMOR).value(armor).build();
        // this.artifactSlots[Consts.ARTIFACTS_HELMET] = Artifact.builder().type(ArtifactType.HELMET).value(helm).build();
+    }
+
+    public abstract Stats getBonusStats();
+
+    public Stats getStatsFromArtifacts() {
+        float attackPoints = 0.0F;
+        float defensePoints = 0.0F;
+        float hitPoints = 0.0F;
+
+        for (Artifact artifact : this.artifactSlots) {
+            if (artifact == null)
+                continue;
+
+            if (artifact.getType() == ArtifactType.WEAPON)
+                attackPoints += artifact.getValue();
+            else if (artifact.getType() == ArtifactType.ARMOR)
+                defensePoints += artifact.getValue();
+            else if (artifact.getType() == ArtifactType.HELMET)
+                hitPoints += artifact.getValue();
+        }
+
+        return new Stats(attackPoints, defensePoints, hitPoints);
     }
 
     public double getNextLevelExperience() {
