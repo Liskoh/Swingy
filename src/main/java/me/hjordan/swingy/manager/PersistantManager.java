@@ -1,11 +1,12 @@
 package me.hjordan.swingy.manager;
 
-public abstract class PersistantManager<T>{
+import java.util.List;
 
-    public PersistantManager() {}
+public interface PersistantManager<T>{
 
-    public abstract void save(T object);
-    public abstract void delete(T object);
-    public abstract void update(T object);
-    public abstract T find(T object);
+
+    public void save(T object);
+    public T find(String name);
+
+    public List<T> findAll();
 }

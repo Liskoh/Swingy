@@ -2,10 +2,12 @@ package me.hjordan.swingy.objects.hero;
 
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
+import me.hjordan.swingy.objects.artifact.Artifact;
 import me.hjordan.swingy.utils.Consts;
 
-@Builder
 @Data
+@Getter
 public abstract class AbstractHero {
 
     private String name;
@@ -15,7 +17,7 @@ public abstract class AbstractHero {
     private float attackPoints;
     private float defensePoints;
     private float hitPoints;
-    private int[] artifactSlots;
+    private Artifact[] artifactSlots;
 
     public AbstractHero(String name, HeroType type) {
         this.name = name;
@@ -25,7 +27,21 @@ public abstract class AbstractHero {
         this.attackPoints = 0.0F;
         this.defensePoints = 0.0F;
         this.hitPoints = 0.0F;
-        this.artifactSlots = new int[Consts.ARTIFACTS_SLOT_COUNT];
+        this.artifactSlots = new Artifact[Consts.ARTIFACTS_SLOT_COUNT];
+    }
+
+    public void setStats(int level, double experience, float attackPoints, float defensePoints, float hitPoints) {
+        this.level = level;
+        this.experience = experience;
+        this.attackPoints = attackPoints;
+        this.defensePoints = defensePoints;
+        this.hitPoints = hitPoints;
+    }
+
+    public void setArtifacts(int weapon, int armor, int helm) {
+       // this.artifactSlots[Consts.ARTIFACTS_WEAPON] = Artifact.builder().type(ArtifactType.WEAPON).value(weapon).build();
+       // this.artifactSlots[Consts.ARTIFACTS_ARMOR] = Artifact.builder().type(ArtifactType.ARMOR).value(armor).build();
+       // this.artifactSlots[Consts.ARTIFACTS_HELMET] = Artifact.builder().type(ArtifactType.HELMET).value(helm).build();
     }
 
     public double getNextLevelExperience() {

@@ -10,4 +10,5 @@ public class Artifact {
 
     private ArtifactType type;
     private float value;
+    private int id;
 }

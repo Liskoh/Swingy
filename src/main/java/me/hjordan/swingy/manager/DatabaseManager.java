@@ -1,41 +1,84 @@
 package me.hjordan.swingy.manager;
 
 import lombok.Getter;
+import me.hjordan.swingy.objects.config.PostgresConfig;
 import me.hjordan.swingy.objects.hero.AbstractHero;
+import me.hjordan.swingy.objects.hero.HeroType;
+import me.hjordan.swingy.objects.hero.dao.HeroesDAO;
+import me.hjordan.swingy.objects.hero.type.BerserkHero;
+import me.hjordan.swingy.utils.Consts;
+
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
-public class DatabaseManager extends PersistantManager<AbstractHero> {
+public class DatabaseManager implements PersistantManager<AbstractHero> {
 
     private static DatabaseManager instance = null;
+    private Connection connection;
+    private final HeroesDAO dao;
 
     public DatabaseManager() {
         instance = this;
 
+        this.connection = this.getConnection();
+        this.dao = new HeroesDAO(this.connection);
+
+        this.dao.createTable();
     }
 
     @Override
     public void save(AbstractHero hero) {
-        final String sql = "INSERT INTO heroes (name, type, level, experience, attack, defense, hitpoints) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        try {
+            this.dao.saveHero(hero);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
-    public void delete(AbstractHero hero) {
-
-    }
-
-    @Override
-    public void update(AbstractHero hero) {
-
-    }
-
-    @Override
-    public AbstractHero find(AbstractHero hero) {
+    public AbstractHero find(String name) {
+        try {
+            return this.dao.findHeroByName(name);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
-    public void initTables() {
-        final String sql = "CREATE TABLE IF NOT EXISTS heroes (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, type TEXT," +
-                "level INTEGER, experience REAL, attack REAL, defense REAL, hitpoints REAL, weapon INTEGER, armor INTEGER, helm INTEGER)";
+    @Override
+    public List<AbstractHero> findAll() {
+        try {
+            return this.dao.findAllHeroes();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
+
+
+    public Connection getConnection() {
+        if (this.connection == null) {
+            try {
+                this.connection = initConnection();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return this.connection;
+    }
+
+    public Connection initConnection() throws SQLException {
+        final PostgresConfig config = ConfigManager.getInstance().get();
+
+        final String url = "jdbc:postgresql://" + config.getHost() + ":" + config.getPort() + "/" + config.getDatabase();
+        final String username = config.getUsername();
+        final String password = config.getPassword();
+
+        return DriverManager.getConnection(url, username, password);
+    }
+
 
 }
