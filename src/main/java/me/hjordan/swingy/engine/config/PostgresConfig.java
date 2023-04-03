@@ -14,8 +14,8 @@ public class PostgresConfig {
     public PostgresConfig() {
         this.host = "localhost";
         this.port = "5432";
-        this.database = "swingy";
-        this.username = "postgres";
-        this.password = "postgres";
+        this.database = "test";
+        this.username = "swingy";
+        this.password = "swingy";
     }
 }

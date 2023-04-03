@@ -6,14 +6,14 @@ import me.hjordan.swingy.app.type.GuiApp;
 
 public class Main {
 
-    private static SwingyApp app;
+    public static SwingyApp APP;
 
     private static void printUsageAndExit() {
         System.out.println("Usage: java -jar swingy.jar [console|gui]");
         System.exit(1);
     }
 
-    private SwingyApp getApp(GameMode gameMode) {
+    private static SwingyApp createApp(GameMode gameMode) {
         switch (gameMode) {
             case CONSOLE:
                 return new GuiApp();
@@ -40,7 +40,7 @@ public class Main {
         if (gameMode == null)
             printUsageAndExit();
 
-        final SwingyApp app = new Main().getApp(gameMode);
-        app.start();
+        APP = createApp(gameMode);
+        APP.start();
     }
 }

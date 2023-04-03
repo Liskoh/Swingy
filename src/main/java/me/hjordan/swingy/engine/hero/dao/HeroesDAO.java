@@ -50,7 +50,7 @@ public class HeroesDAO {
     }
 
     public void createTable() {
-        final String sql = "CREATE TABLE IF NOT EXISTS heroes (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, type TEXT," +
+        final String sql = "CREATE TABLE IF NOT EXISTS heroes (id SERIAL PRIMARY KEY, name TEXT, type TEXT," +
                 "level INTEGER, experience REAL, attack REAL, defense REAL, hitpoints REAL, weapon INTEGER, armor INTEGER, helm INTEGER)";
 
         try (Statement statement = this.connection.createStatement()) {
