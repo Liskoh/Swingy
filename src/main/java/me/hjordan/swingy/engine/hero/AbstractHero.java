@@ -1,11 +1,10 @@
-package me.hjordan.swingy.objects.hero;
+package me.hjordan.swingy.engine.hero;
 
-import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
-import me.hjordan.swingy.objects.artifact.Artifact;
-import me.hjordan.swingy.objects.artifact.ArtifactType;
-import me.hjordan.swingy.objects.stats.Stats;
+import me.hjordan.swingy.engine.artifact.Artifact;
+import me.hjordan.swingy.engine.artifact.ArtifactType;
+import me.hjordan.swingy.engine.stats.Stats;
 import me.hjordan.swingy.utils.Consts;
 
 @Data

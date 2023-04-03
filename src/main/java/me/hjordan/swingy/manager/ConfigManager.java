@@ -1,7 +1,7 @@
 package me.hjordan.swingy.manager;
 
 import lombok.Getter;
-import me.hjordan.swingy.objects.config.PostgresConfig;
+import me.hjordan.swingy.engine.config.PostgresConfig;
 
 @Getter
 public class ConfigManager {

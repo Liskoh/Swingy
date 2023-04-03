@@ -1,4 +1,4 @@
-package me.hjordan.swingy.objects.artifact;
+package me.hjordan.swingy.engine.artifact;
 
 public enum ArtifactType {
     HELMET,

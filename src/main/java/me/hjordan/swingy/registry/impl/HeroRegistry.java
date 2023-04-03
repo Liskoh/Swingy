@@ -1,9 +1,9 @@
 package me.hjordan.swingy.registry.impl;
 
 import lombok.Getter;
-import me.hjordan.swingy.objects.hero.AbstractHero;
-import me.hjordan.swingy.objects.hero.HeroType;
-import me.hjordan.swingy.objects.hero.type.BerserkHero;
+import me.hjordan.swingy.engine.hero.AbstractHero;
+import me.hjordan.swingy.engine.hero.HeroType;
+import me.hjordan.swingy.engine.hero.type.BerserkHero;
 import me.hjordan.swingy.registry.AbstractRegistry;
 
 public class HeroRegistry extends AbstractRegistry<AbstractHero> {

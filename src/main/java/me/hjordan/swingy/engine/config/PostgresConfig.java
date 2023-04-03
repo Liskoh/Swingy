@@ -1,4 +1,4 @@
-package me.hjordan.swingy.objects.config;
+package me.hjordan.swingy.engine.config;
 
 import lombok.Getter;
 

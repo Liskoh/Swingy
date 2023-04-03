@@ -1,8 +1,8 @@
-package me.hjordan.swingy.objects.stats;
+package me.hjordan.swingy.engine.stats;
 
 import lombok.Getter;
 import lombok.Setter;
-import me.hjordan.swingy.objects.hero.AbstractHero;
+import me.hjordan.swingy.engine.hero.AbstractHero;
 
 @Getter
 @Setter

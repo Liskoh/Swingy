@@ -1,7 +1,7 @@
 package me.hjordan.swingy.registry.impl;
 
-import me.hjordan.swingy.objects.artifact.Artifact;
-import me.hjordan.swingy.objects.artifact.ArtifactType;
+import me.hjordan.swingy.engine.artifact.Artifact;
+import me.hjordan.swingy.engine.artifact.ArtifactType;
 import me.hjordan.swingy.registry.AbstractRegistry;
 
 public class ArtifactRegistry extends AbstractRegistry<Artifact> {

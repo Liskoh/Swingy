@@ -1,8 +1,7 @@
-package me.hjordan.swingy.objects.artifact;
+package me.hjordan.swingy.engine.artifact;
 
 import lombok.Builder;
 import lombok.Data;
-import lombok.Getter;
 
 @Builder
 @Data

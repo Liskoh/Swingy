@@ -1,4 +1,4 @@
-package me.hjordan.swingy.objects.hero;
+package me.hjordan.swingy.engine.hero;
 
 public enum HeroType {
 

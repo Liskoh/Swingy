@@ -1,15 +1,11 @@
 package me.hjordan.swingy.manager;
 
 import lombok.Getter;
-import me.hjordan.swingy.objects.config.PostgresConfig;
-import me.hjordan.swingy.objects.hero.AbstractHero;
-import me.hjordan.swingy.objects.hero.HeroType;
-import me.hjordan.swingy.objects.hero.dao.HeroesDAO;
-import me.hjordan.swingy.objects.hero.type.BerserkHero;
-import me.hjordan.swingy.utils.Consts;
+import me.hjordan.swingy.engine.config.PostgresConfig;
+import me.hjordan.swingy.engine.hero.AbstractHero;
+import me.hjordan.swingy.engine.hero.dao.HeroesDAO;
 
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Getter

@@ -1,9 +1,8 @@
-package me.hjordan.swingy.objects.hero.type;
+package me.hjordan.swingy.engine.hero.type;
 
-import lombok.Builder;
-import me.hjordan.swingy.objects.hero.AbstractHero;
-import me.hjordan.swingy.objects.hero.HeroType;
-import me.hjordan.swingy.objects.stats.Stats;
+import me.hjordan.swingy.engine.hero.AbstractHero;
+import me.hjordan.swingy.engine.hero.HeroType;
+import me.hjordan.swingy.engine.stats.Stats;
 
 public class BerserkHero extends AbstractHero {
 

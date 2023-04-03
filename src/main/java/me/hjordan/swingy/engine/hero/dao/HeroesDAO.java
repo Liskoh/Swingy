@@ -1,8 +1,8 @@
-package me.hjordan.swingy.objects.hero.dao;
+package me.hjordan.swingy.engine.hero.dao;
 
-import me.hjordan.swingy.objects.hero.AbstractHero;
-import me.hjordan.swingy.objects.hero.HeroType;
-import me.hjordan.swingy.objects.hero.type.BerserkHero;
+import me.hjordan.swingy.engine.hero.AbstractHero;
+import me.hjordan.swingy.engine.hero.HeroType;
+import me.hjordan.swingy.engine.hero.type.BerserkHero;
 import me.hjordan.swingy.utils.Consts;
 
 import java.sql.*;
