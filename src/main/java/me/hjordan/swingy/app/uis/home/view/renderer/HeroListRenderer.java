@@ -8,6 +8,9 @@ public class HeroListRenderer extends JLabel implements ListCellRenderer<Abstrac
 
         @Override
         public JLabel getListCellRendererComponent(JList<? extends AbstractHero> list, AbstractHero hero, int index, boolean isSelected, boolean cellHasFocus) {
+            if (hero == null)
+                return this;
+
             final String text = String.format("%s - level %s - %s", hero.getName(), hero.getLevel(), hero.getType());
 
             setText(text);
