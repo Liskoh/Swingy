@@ -2,7 +2,7 @@ package me.hjordan.swingy.app.type;
 
 import me.hjordan.swingy.app.GameMode;
 import me.hjordan.swingy.app.SwingyApp;
-import me.hjordan.swingy.app.controller.HomeController;
+import me.hjordan.swingy.app.uis.home.controller.HomeController;
 
 public class GuiApp extends SwingyApp {
 

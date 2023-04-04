@@ -82,6 +82,14 @@ public abstract class AbstractHero {
         }
     }
 
+    public void incrementStats() {
+        final int bonus = Consts.STATS_UPDATE_PER_LEVEL * this.level;
+
+        this.attackPoints += bonus;
+        this.defensePoints += bonus;
+        this.hitPoints += bonus;
+    }
+
     public int getGameSize() {
         final int currentLevel = getLevel() - 1;
 

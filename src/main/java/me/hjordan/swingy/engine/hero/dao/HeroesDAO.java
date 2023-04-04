@@ -1,5 +1,6 @@
 package me.hjordan.swingy.engine.hero.dao;
 
+import me.hjordan.swingy.engine.artifact.Artifact;
 import me.hjordan.swingy.engine.hero.AbstractHero;
 import me.hjordan.swingy.engine.hero.HeroType;
 import me.hjordan.swingy.engine.hero.type.BerserkHero;
@@ -69,12 +70,19 @@ public class HeroesDAO {
             stmt.setDouble(5, hero.getAttackPoints());
             stmt.setDouble(6, hero.getDefensePoints());
             stmt.setDouble(7, hero.getHitPoints());
-            stmt.setInt(8, hero.getArtifactSlots()[Consts.ARTIFACTS_WEAPON].getId());
-            stmt.setInt(9, hero.getArtifactSlots()[Consts.ARTIFACTS_ARMOR].getId());
-            stmt.setInt(10, hero.getArtifactSlots()[Consts.ARTIFACTS_HELMET].getId());
+            stmt.setInt(8, getId(hero.getArtifactSlots()[Consts.ARTIFACTS_WEAPON]));
+            stmt.setInt(9, getId(hero.getArtifactSlots()[Consts.ARTIFACTS_ARMOR]));
+            stmt.setInt(10, getId(hero.getArtifactSlots()[Consts.ARTIFACTS_HELMET]));
 
             stmt.executeUpdate();
         }
+    }
+
+    public int getId(Artifact artifact) {
+        if (artifact == null)
+            return -1;
+
+        return artifact.getId();
     }
 
     public AbstractHero findHeroByName(String name) throws SQLException {

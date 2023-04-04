@@ -1,4 +1,4 @@
-package me.hjordan.swingy.app.controller;
+package me.hjordan.swingy.app.uis;
 
 public interface IController {
 

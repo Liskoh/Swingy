@@ -12,6 +12,12 @@ public class Stats {
     private float defensePoints;
     private float hitPoints;
 
+    public Stats() {
+        this.attackPoints = 0;
+        this.defensePoints = 0;
+        this.hitPoints = 0;
+    }
+
     public Stats(float attackPoints, float defensePoints, float hitPoints) {
         this.attackPoints = attackPoints;
         this.defensePoints = defensePoints;
